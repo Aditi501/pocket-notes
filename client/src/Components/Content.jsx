@@ -43,7 +43,7 @@ function Content() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/groups')
+    axios.get('https://pocketnotes-r0zf.onrender.com/api/groups')
       .then(response => setNotes(response.data))
       .catch(error => console.error('Error fetching notes:', error));
   }, []);
@@ -69,7 +69,7 @@ function Content() {
 
     const newNote = { name: input.name, color: selectedColor };
 
-    axios.post('http://localhost:5000/api/groups', newNote)
+    axios.post('https://pocketnotes-r0zf.onrender.com/api/groups', newNote)
       .then(response => {
         setNotes([...notes, response.data]);
         setInput({ name: '', body: '' });

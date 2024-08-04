@@ -15,7 +15,7 @@ const Notes = ({
   const [noteContent, setNoteContent] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/notes/${activeNote}`)
+    axios.get(`https://pocketnotes-r0zf.onrender.com/api/notes/${activeNote}`)
       .then(response => setNoteContent(response.data))
       .catch(error => console.error('Error fetching notes:', error));
   }, [noteContent])
@@ -24,7 +24,7 @@ const Notes = ({
 
   const handleAddNote = async (groupId, body) => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/notes/add/${groupId}`, body);
+      const response = await axios.post(`https://pocketnotes-r0zf.onrender.com/api/notes/add/${groupId}`, body);
       setGroupNotes(response.data);
       setGroupNotes('');
     }
